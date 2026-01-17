@@ -195,9 +195,9 @@ If you're in California, you have additional rights under CCPA:
 ## 📱 App Information
 
 - **Package Name**: `com.sudarshantechlabs.remindtodeleteapps`
-- **Version**: 1.0.0
+- **Version**: 0.0.2
 - **Min SDK**: 26 (Android 8.0)
-- **Target SDK**: 34 (Android 14)
+- **Target SDK**: 36 (Android 16)
 - **Platform**: Android only
 - **Language**: Kotlin
 - **Architecture**: MVVM with Jetpack Compose

@@ -320,7 +320,7 @@ If you have a complaint about how we handle your personal information, you can:
 
 **Last Updated**: January 2025
 
-**Version**: 1.0
+**Version**: 0.0.2
 
 ---
 
