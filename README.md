@@ -1,105 +1,133 @@
-# Privacy Policy — RemindToDeleteApps
+# RemindToDeleteApps — Privacy Policy
 
 **Effective Date:** 2026-03-21
-**Developer:** SudarshanTechLabs
-**Location:** Bangkok, Bangkok, Thailand
-**Contact:** sudarshantechlabs@gmail.com
+**Last Updated:** 2026-03-21
+**Version:** 1.0.0
+
+Published by **Sudarshan Tech Labs** | https://sudarshantechlabs.com | sudarshantechlabs@gmail.com
 
 ---
 
-## 1. Introduction
-
-RemindToDeleteApps ("the App") is developed and maintained by SudarshanTechLabs. This Privacy Policy explains what information the App accesses, how it is used, and your rights as a user.
-
-We are committed to your privacy. **The App does not collect, store, or transmit any personal data to external servers.**
+RemindToDeleteApps helps you manage installed apps on your Android device by scheduling reminders to review and remove apps you no longer use. All data is stored locally. Sudarshan Tech Labs does not collect or transmit personal data.
 
 ---
 
-## 2. Data We Access
+## Data Collection
 
-### 2.1 Installed Applications List
-The App requests the `QUERY_ALL_PACKAGES` permission to read the list of apps installed on your device.
+### Data Stored Locally on Your Device
 
-- **Why:** To display your installed apps so you can set reminders for them.
-- **How it is used:** Entirely on-device. The app list is never transmitted, uploaded, shared, or sold to any third party.
+| Data | Purpose | Storage |
+|---|---|---|
+| App reminder configurations (app name, reminder date, notes) | Core reminder functionality | Room database on your device |
+| List of installed apps (read at runtime) | Display apps for reminder setup | Not stored — read dynamically |
+| App preferences | Personalisation | DataStore on your device |
 
-### 2.2 App Uninstall Capability
-The App uses the `REQUEST_DELETE_PACKAGES` permission to initiate the system uninstall dialog for an app when you tap "Delete."
+### Installed App Information
 
-- **Why:** To trigger the standard Android uninstall flow on your behalf.
-- **How it is used:** Only when you explicitly tap a delete/uninstall action. The App does not silently uninstall anything.
-
-### 2.3 Notifications
-The App uses the `POST_NOTIFICATIONS` permission to send reminder notifications.
-
-- **Why:** To alert you when an app's reminder timer has expired.
-- **How it is used:** Notifications are scheduled and delivered entirely on-device via Android's WorkManager and AlarmManager. No notification content is sent to external servers.
-
-### 2.4 Boot Completion
-The App uses the `RECEIVE_BOOT_COMPLETED` permission.
-
-- **Why:** To reschedule your pending reminders after a device restart, so reminders are never lost.
-
-### 2.5 Foreground Service
-The App uses a foreground service (`FOREGROUND_SERVICE`, `FOREGROUND_SERVICE_DATA_SYNC`) for background processing of app installation events.
-
-- **Why:** To detect when new apps are installed and offer to set a reminder immediately.
-- **How it is used:** Processing happens locally. No data leaves your device.
-
-### 2.6 Internet
-The `INTERNET` permission is declared in the App.
-
-- **Current use:** Not actively used for core features. May be used in future versions for optional features such as crash reporting or feature announcements, in which case this policy will be updated.
+RemindToDeleteApps reads the list of apps installed on your device to allow you to set reminders. This list is processed in-app only and is not stored permanently or transmitted externally.
 
 ---
 
-## 3. Data Storage
+## How We Use Your Data
 
-All app data — including your reminder settings, snooze preferences, and keep-forever lists — is stored **locally on your device** using Android's Room database and DataStore.
-
-- No data is backed up to any cloud service operated by SudarshanTechLabs.
-- Standard Android system backups (if enabled by the user) may include this local data per Android's backup policies.
-
----
-
-## 4. Data Sharing
-
-We do not sell, rent, trade, or otherwise share your data with any third parties. No analytics SDKs, advertising SDKs, or tracking libraries are integrated into the App.
+| Purpose | Data Used |
+|---|---|
+| Display installed apps for reminder setup | Installed app list (runtime only) |
+| Schedule and deliver reminder notifications | Local reminder configurations |
+| Run background checks for due reminders | Local WorkManager tasks |
 
 ---
 
-## 5. Third-Party Services
+## Data Storage and Security
 
-The App does not integrate any third-party analytics, advertising, or crash reporting services at this time.
+- **Reminder data:** Stored in a Room database in the App's private directory
+- **No cloud storage:** Sudarshan Tech Labs operates no backend server
+- **Biometric lock:** Optional biometric authentication to access the App (Android Biometric API — biometric data managed by Android OS)
+- **Android sandbox:** All data is protected by Android's application isolation
 
----
+## Data Retention
 
-## 6. Children's Privacy
-
-The App does not knowingly collect any information from children under the age of 13. The App does not target children. If you believe a child has provided information through the App, please contact us and we will address it promptly.
-
----
-
-## 7. Security
-
-Since all data is stored locally on your device, its security depends on your device's security settings (screen lock, encryption, etc.). We do not have access to your device or its data.
+| Data | Retention |
+|---|---|
+| All local reminder data | Until you delete it or uninstall the App |
 
 ---
 
-## 8. Changes to This Policy
+## Data Sharing
 
-We may update this Privacy Policy from time to time. When we do, we will update the **Effective Date** at the top of this page. Continued use of the App after changes are posted constitutes acceptance of the updated policy.
-
----
-
-## 9. Contact Us
-
-If you have any questions or concerns about this Privacy Policy, please contact:
-
-**SudarshanTechLabs**
-Bangkok, Bangkok, Thailand
-sudarshantechlabs@gmail.com
+We do not collect, sell, or share your data. Installed app information is never transmitted externally.
 
 ---
 
-*This privacy policy applies to the RemindToDeleteApps Android application published on the Google Play Store.*
+## Background Services
+
+RemindToDeleteApps uses a foreground service (`FOREGROUND_SERVICE_DATA_SYNC`) to check for due reminders in the background. A persistent notification is visible while the service runs.
+
+---
+
+## Permissions Explained
+
+| Permission | Why It Is Needed |
+|---|---|
+| `POST_NOTIFICATIONS` | Deliver app deletion reminder notifications |
+| `RECEIVE_BOOT_COMPLETED` | Reschedule reminders after device restart |
+| `QUERY_ALL_PACKAGES` | Read the list of installed apps to set reminders for them |
+| `REQUEST_DELETE_PACKAGES` | Show the system uninstall dialog for an app when you tap Delete |
+| `INTERNET` | Network library initialisation (no personal data sent) |
+| `FOREGROUND_SERVICE` | Run the reminder check service in the background |
+| `FOREGROUND_SERVICE_DATA_SYNC` | Required foreground service type for background data tasks |
+
+---
+
+## Your Rights and Controls
+
+- **Delete individual reminders:** Use the delete function in the App
+- **Delete all data:** Uninstall or go to Android Settings > Apps > RemindToDeleteApps > Storage > Clear Data
+
+---
+
+## Children's Privacy
+
+RemindToDeleteApps is not directed at children under 13. We do not collect personal information.
+
+---
+
+## Changes to This Policy
+
+We may update this Privacy Policy from time to time. We will notify you of significant changes via:
+
+- In-app notification
+- Updated policy date on this page
+
+Continued use of RemindToDeleteApps after changes become effective constitutes your acceptance of the updated policy.
+
+---
+
+## Contact Us
+
+For privacy questions, data access requests, or account deletion:
+
+- **Email:** sudarshantechlabs@gmail.com
+- **Developer:** sunny.sudarshan@gmail.com
+- **Website:** https://sudarshantechlabs.com
+- **Response Time:** Within 48 hours
+
+---
+
+## Play Store Data Safety Summary
+
+| Data type | Collected | Shared | Purpose |
+|---|---|---|---|
+| Reminder configurations | Local only | No | App functionality |
+| Installed app list | Runtime only, not stored | No | Reminder setup |
+
+---
+
+---
+
+**This privacy policy complies with:**
+- Google Play Store requirements
+- GDPR (General Data Protection Regulation)
+- CCPA (California Consumer Privacy Act)
+
+**Last reviewed:** 2026-03-21
